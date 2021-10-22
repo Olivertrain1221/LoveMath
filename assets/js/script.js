@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function(){
  function runGame(gameType){
 
     //Creates two random number between 1 and 25
-    let num1 = Math.floor(Math.random() *25) +1;
-    let num2 =Math.floor(Math.random() *25) + 1;
+    let num1 = Math.floor(Math.random() * 25) + 1;
+    let num2 = Math.floor(Math.random() * 25) + 1;
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1,num2);
@@ -64,8 +64,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (isCorrect) {
             alert("Hey! You got it right! :D");
+            incrementScore();
         } else {
             alert(`Awwwww... you answered ${userAnswer}. the correct answer was ${calculatedAnswer[0]}!`);
+            incrementWrongAnswer();
         }
 
         runGame(calculatedAnswer[1]);
@@ -94,12 +96,9 @@ document.addEventListener("DOMContentLoaded", function(){
  */
   function incrementScore() {
 
-        let oldScore = parseint(document.getElementById("score").innerText);
-        document.getElementById("score").innerText = ++oldScole;
-
-
-
-  }
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
+}
 
   /** Gets the current tally of answers from the dom and increase */
   function incrementWrongAnswer() {
